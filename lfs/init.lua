@@ -138,7 +138,8 @@ end
     In case of any errors it returns nil and the error message. In particular, if the lock exists and is not stale it returns the "File exists" message.
 ]]
 function lfs.lock_dir()
-    error("not implemented!")
+    -- Files cant be locked on ComputerCraft
+    return nil, "Dir locking is not supported"
 end
 
 --[[ lfs.currentdir ()
@@ -176,7 +177,8 @@ end
     Returns true if the operation was successful; in case of error, it returns nil plus an error string.
 ]]
 function lfs.lock()
-    error("not implemented!")
+    -- Files cant be locked on ComputerCraft
+    return nil, "File locking is not supported"
 end
 
 --[[ lfs.link (old, new[, symlink])
@@ -184,7 +186,8 @@ end
     If the optional third argument is true, the link will by a symbolic link (by default, a hard link is created).
 ]]
 function lfs.link()
-    error("not implemented!")
+    -- Links are not supported by ComputerCraft
+    return nil, "Links are not supported", 42 -- 42 is the error code that explains this error best
 end
 
 --[[ lfs.mkdir (dirname)
@@ -225,7 +228,7 @@ end
     On non-Windows platforms, where the two modes are identical, setting the mode has no effect, and the mode is always returned as binary.
 ]]
 function lfs.setmode()
-    error("not implemented!")
+    return true, "binary"
 end
 
 --[[ lfs.symlinkattributes (filepath [, request_name])
@@ -281,7 +284,8 @@ end
     Returns true if the operation was successful; in case of error, it returns nil plus an error string.
 ]]
 function lfs.unlock()
-    error("not implemented!")
+    -- Files cant be locked on ComputerCraft
+    return true
 end
 
 return lfs
